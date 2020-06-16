@@ -99,7 +99,7 @@ input
              <div class="form-group row">
               <label for="prefix" class="col-sm-6">Prefix<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                <select class="form-control prefix" id="prefix1" name="prefix[]" autofocus>
+                <select class="form-control prefix" id="prefix1" name="prefix" autofocus>
                   <option></option>
                   <option value="MAN">MAN</option>
                   <option value="API">API</option>
@@ -112,7 +112,7 @@ input
            <div class="form-group row">
               <label for="ticketnumber" class="col-sm-6">Ticket MS-<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                 <input type="text" class="form-control ticketnumber" name="ticketnumber[]" id="ticketnumber1" pattern="([0-9]+)" title="Only numbers are accepeted" onblur="get_estimation_function($(this).val())" placeholder="Ticket Number"required>
+                 <input type="text" class="form-control ticketnumber" name="ticketnumber" id="ticketnumber1" pattern="([0-9]+)" title="Only numbers are accepeted" onblur="get_estimation_function($(this).val())" placeholder="Ticket Number"required>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ input
             <div class="form-group row">
               <label for="description" class="col-sm-3">Description</label>
               <div class="col-sm-9">
-                 <textarea class="form-control" cols="15" rows="3" name="description[]" id="description1" placeholder="Description"></textarea>
+                 <textarea class="form-control" cols="15" rows="3" name="description" id="description1" placeholder="Description"></textarea>
                 </div>
             </div>
     
@@ -128,7 +128,7 @@ input
            <div class="form-group row">
               <label for="status" class="col-sm-3">Status<span class="star" style="color:red">*</span></label>
               <div class="col-sm-9">
-                <select class="form-control status" id="status1" onblur="getmarks()" name="status[]">
+                <select class="form-control status" id="status1" onblur="getmarks()" name="status">
                   <option></option>
                   <option value="NOT_STARTED">Not Started</option>
                   <option value="INITIATED">Initiated</option>
@@ -152,7 +152,7 @@ input
             <div class="form-group row">
               <label for="login_time" class="col-sm-6">Login Time<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                    <input type="text" id="login_time1" class="login_time" name="login_time[]" >
+                    <input type="text" id="login_time1" class="login_time" name="login_time" >
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ input
             <div class="form-group row">
               <label for="logout_time" class="col-sm-6">Logout Time<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                    <input type="text" id="logout_time1" class="logout_time" name="logout_time[]" >
+                    <input type="text" id="logout_time1" class="logout_time" name="logout_time" >
               </div>
             </div>
 
@@ -173,7 +173,7 @@ input
             <div class="form-group row">
               <label for="estimatedtime" class="col-sm-6">Estimated Time<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                 <input type="text" class="form-control" name="estimatedtime[]" id="estimatedtime1" onblur="get_remainingtime_function($(this).val())" placeholder="Eg: 1hr" required>
+                 <input type="text" class="form-control" name="estimatedtime" id="estimatedtime1" onblur="get_remainingtime_function($(this).val())" placeholder="Eg: 1hr" required>
               </div>
             </div>
               </div>
@@ -182,7 +182,7 @@ input
               <div class="form-group row">
               <label for="remainingtime" class="col-sm-6">Remaining Time<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                    <select class="form-control" name="remainingtime[]" id="remainingtime1"></select>
+                    <select class="form-control" name="remainingtime" id="remainingtime1"></select>
               </div>
             </div>
 
@@ -195,7 +195,7 @@ input
             <div class="form-group row">
           <label for="completepercentage" class="col-sm-6">Work Completed<span class="star" style="color:red">*</span></label>
               <div class="col-sm-6">
-                    <select class="form-control" name="completepercentage[]" id="completepercentage1"></select>
+                    <select class="form-control" name="completepercentage" id="completepercentage1"></select>
               </div>
            </div>
            
@@ -216,7 +216,7 @@ input
             <div class="form-group row">
               <label for="comments" class="col-sm-3">Comments</label>
               <div class="col-sm-9">
-                 <textarea class="form-control" cols="10" rows="3" name="comments[]" id="comments1" placeholder="Eg: Local & staging setup completed"></textarea>
+                 <textarea class="form-control" cols="10" rows="3" name="comments" id="comments1" placeholder="Eg: Local & staging setup completed"></textarea>
                 </div>
             </div>
 
@@ -238,7 +238,7 @@ input
               <div class="form-group row">
                     <label for="main_ticket_no" class="col-sm-5">Main Ticket Number</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="main_ticket_no1" name="main_ticket_no[]">
+                        <input type="text" class="form-control" id="main_ticket_no1" name="main_ticket_no">
                     </div>
                 </div>
         </div>
@@ -262,7 +262,7 @@ input
               <div class="form-group row">
                  <label for="iteration_no" class="col-sm-5">Iteration Number</label>
                  <div class="col-sm-7">
-                    <input type="number" class="form-control" min='1' id="iteration_no1" name="iteration_no[]">
+                    <input type="number" class="form-control" min='1' id="iteration_no1" name="iteration_no">
                  </div>
               </div>
            </div>
@@ -367,7 +367,7 @@ input
                 sentence+="Remaining time = "+result.remainingtime+"<br>";
                 sentence+="Completed percentage = "+result.completepercentage+"<br>";
                 sentence+="Comments = "+result.comments+"<br>";
-                if(result.is_subticket === "yes" || result.is_subticket ==="y")
+                if(result.is_subticket === "yes")
               {
                   sentence+="This ticket is a subticket <br>";
                   sentence+="Main ticket No. = "+result.main_ticket_no+"<br>";
@@ -377,7 +377,7 @@ input
                 sentence+="This ticket is not a subticket <br>";
               }
 
-              if(result.istesting === "yes" || result.istesting === "y")
+              if(result.istesting === "yes")
               {
                 sentence+="Under testing <br>";
                 sentence+="Testing iteration = "+result.iteration_no+"<br>";
@@ -436,7 +436,13 @@ input
                     $('#completepercentage1').append(option);
                 }
               $('#comments1').val(result.comments);
-              if(result.is_subticket === "yes" || result.is_subticket ==="y")
+
+
+              console.log(result.is_subticket);
+              console.log(result.main_ticket_no);
+              console.log(result.istesting);
+              console.log(result.iteration_no);
+              if(result.is_subticket === "yes" || result.is_subticket === "YES")
               {
                   $("#is_subticket_yes").prop("checked",true);
                   $(".subdiv").show();
@@ -450,7 +456,7 @@ input
 
               }
               
-              if(result.istesting === "yes" || result.istesting === "y")
+              if(result.istesting === "yes" || result.istesting === "YES")
               {
                 $("#istesting_yes").prop("checked",true);
                 $(".iterationdiv").show();
@@ -472,7 +478,7 @@ input
             });
 
          function get_estimation_function(ticketnumber) {
-                    var index=$("input[name='ticketnumber[]']").length;
+                    var index=$("input[name='ticketnumber']").length;
                     $.ajax({
                     type: "POST",
                     url: "get_estimatedtime.php",
@@ -508,7 +514,7 @@ input
 
                 function get_remainingtime_function(estimatedtime)
             {
-              var index=$("input[name='estimatedtime[]']").length;              
+              var index=$("input[name='estimatedtime']").length;              
                 var idname ="remainingtime1";
                 // idname+=index;
                 console.log(idname);
@@ -658,14 +664,14 @@ $('#eodform1').bootstrapValidator({
             validating: 'fa fa-refresh'
         },
         fields: {
-            'prefix[]': {
+            'prefix': {
                 validators: {
                     notEmpty: {
                         message: 'Prefix is required.'
                     }
                 }
             },
-            'ticketnumber[]': {
+            'ticketnumber': {
                 validators: {
                     notEmpty: {
                         message: 'Ticket Number is required.<br>'
@@ -675,42 +681,42 @@ $('#eodform1').bootstrapValidator({
                     }
                 }
             },
-            'status[]': {
+            'status': {
                 validators: {
                     notEmpty: {
                         message: 'Status is required.'
                     }
                 }
             },
-            'login_time[]': {
+            'login_time': {
                 validators: {
                     notEmpty: {
                         message: 'Login Time is required.'
                     }
                 }
             },
-            'logout_time[]': {
+            'logout_time': {
                 validators: {
                     notEmpty: {
                         message: 'Logout Time is required.'
                     }
                 }
             },
-            'estimatedtime[]': {
+            'estimatedtime': {
                 validators: {
                     notEmpty: {
                         message: 'Estimated Time is required.'
                     }
                 }
             },
-            'remainingtime[]': {
+            'remainingtime': {
                 validators: {
                     notEmpty: {
                         message: 'Remaining Time is required.'
                     }
                 }
             },
-            'completepercentage[]': {
+            'completepercentage': {
                 validators: {
                     notEmpty: {
                         message: 'Work Completed is required.'
@@ -737,21 +743,21 @@ $('#eodform1').bootstrapValidator({
         e.preventDefault();
 
         var mark=100;
-        var prefix = $("select[name='prefix[]']").map(function(){return $(this).val();}).get();
-        var ticketnumber = $("input[name='ticketnumber[]']").map(function(){return $(this).val();}).get();
-        var description = $("textarea[name='description[]']").map(function(){return $(this).val();}).get();
-        var status = $("select[name='status[]']").map(function(){return $(this).val();}).get();
-        var estimatedtime = $("input[name='estimatedtime[]']").map(function(){return $(this).val();}).get();
-        var login_time = $("input[name='login_time[]']").map(function(){return $(this).val();}).get();
-        var logout_time = $("input[name='logout_time[]']").map(function(){return $(this).val();}).get();
-        var remainingtime = $("select[name='remainingtime[]']").map(function(){return $(this).val();}).get();
-        var completepercentage = $("select[name='completepercentage[]']").map(function(){return $(this).val();}).get();
-        var comments = $("textarea[name='comments[]']").map(function(){return $(this).val();}).get();
+        var prefix = $("select[name='prefix']").val();
+        var ticketnumber = $("input[name='ticketnumber']").val();
+        var description = $("textarea[name='description']").val();
+        var status = $("select[name='status']").val();
+        var estimatedtime = $("input[name='estimatedtime']").val();
+        var login_time = $("input[name='login_time']").val();
+        var logout_time = $("input[name='logout_time']").val();
+        var remainingtime = $("select[name='remainingtime']").val();
+        var completepercentage = $("select[name='completepercentage']").val();
+        var comments = $("textarea[name='comments']").val();
         var is_subticket = $("input[name='is_subticket']:checked").val();
         console.log(is_subticket);
-        var main_ticket_no = $("input[name='main_ticket_no[]']").map(function(){return $(this).val();}).get();
+        var main_ticket_no = $("input[name='main_ticket_no']").val();
         var istesting = $("input[name='istesting']:checked").val();
-        var iteration_no = $("input[name='iteration_no[]']").map(function(){return $(this).val();}).get();
+        var iteration_no = $("input[name='iteration_no']").val();
         var mark=$("#mark1").val();
 
       {
@@ -786,7 +792,7 @@ $('#eodform1').bootstrapValidator({
  }
 
 
-        console.log(prefix);
+        console.log(prefix,ticketnumber,description, is_subticket,istesting,logout_time);
                  $.ajax({
          
                      type: "POST",

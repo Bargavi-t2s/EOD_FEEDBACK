@@ -124,12 +124,6 @@
     border-bottom: #ddd 1px solid;
   }
 
-
-
-
-
-
-
   * {
     box-sizing: border-box;
 }

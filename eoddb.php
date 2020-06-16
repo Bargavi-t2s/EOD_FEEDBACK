@@ -35,50 +35,47 @@ if ($_POST) {
     $mark               = ($_POST['mark']);
 }
  
-$length = sizeof($ticketnumber); 
 
 if ($db) 
 {
     $success=0;
     
- for ($i=0; $i < $length ; $i++) 
- {
-    if($eod_id = $ManageEod->getEodIdByTicketnumber($ticketnumber[$i]))
+    if($eod_id = $ManageEod->getEodIdByTicketnumber($ticketnumber))
     {       
-        $existing_working_hrs = $ManageEod->getWorking_hrsByTicketnumber($ticketnumber[$i]);
+        $existing_working_hrs = $ManageEod->getWorking_hrsByTicketnumber($ticketnumber);
         //echo $existing_working_hrs;
         $working_hrs = (int)($working_hrs) + (int)($existing_working_hrs); 
         //echo $working_hrs;
         $form_fields= array('user_id' => $user_id,
                             'user_name' => $user_name,
-                            'prefix' => $prefix[$i],
-                            'description' => $description[$i],
-                            'status' => $status[$i],
-                            'estimated_time' => $estimatedtime[$i],
-                            'login_time' => $login_time[$i],
-                            'logout_time' => $logout_time[$i],
-                            'remaining_time' => $remainingtime[$i],
+                            'prefix' => $prefix,
+                            'description' => $description,
+                            'status' => $status,
+                            'estimated_time' => $estimatedtime,
+                            'login_time' => $login_time,
+                            'logout_time' => $logout_time,
+                            'remaining_time' => $remainingtime,
                             'working_hrs' => $working_hrs,
-                            'complete_percentage' => $completepercentage[$i],
+                            'complete_percentage' => $completepercentage,
                             'mark' => $mark,
-                            'comments' => $comments[$i],
+                            'comments' => $comments,
                             'is_subticket' => $is_subticket,
-                            'main_ticket_no' => $main_ticket_no[$i],
+                            'main_ticket_no' => $main_ticket_no,
                             'is_testing' => $istesting,
-                            'iteration_no' => $iteration_no[$i],
+                            'iteration_no' => $iteration_no,
                             'updated_time' => $curent_date_time,
                             'date' => $date);
-                if($ManageEod->update($form_fields,$ticketnumber[$i]))
+                if($ManageEod->update($form_fields,$ticketnumber))
                     { 
                   
                         $success = 1;
                         $form_fields_2= array('eod_id' => $eod_id,
                             'user_name' => $user_name,
-                            'status' => $status[$i],
-                            'login_time' => $login_time[$i],
-                            'logout_time' => $logout_time[$i],
-                            'remaining_time' => $remainingtime[$i],
-                            'complete_percentage' => $completepercentage[$i],
+                            'status' => $status,
+                            'login_time' => $login_time,
+                            'logout_time' => $logout_time,
+                            'remaining_time' => $remainingtime,
+                            'complete_percentage' => $completepercentage,
                             'created_at' => $date);
                             if($ManageEodLogs->insert($form_fields_2))
                             {
@@ -87,14 +84,14 @@ if ($db)
                             else
                             {
                                 echo json_encode(['code' => 404, 'message'=> 'Database Insertion failure']);  
-                                break;
+                                exit();
                             }
                   
                     }
                     else
                     {
                         echo json_encode(['code' => 404, 'message'=> 'Database Insertion failure']);  
-                                break;
+                            exit();
                     }
             }
 
@@ -102,36 +99,36 @@ if ($db)
             {
                 $form_fields= array('user_id' => $user_id,
                             'user_name' => $user_name,
-                            'ticket_number' => $ticketnumber[$i],
-                            'prefix' => $prefix[$i],
-                            'description' => $description[$i],
-                            'status' => $status[$i],
-                            'estimated_time' => $estimatedtime[$i],
-                            'login_time' => $login_time[$i],
-                            'logout_time' => $logout_time[$i],
-                            'remaining_time' => $remainingtime[$i],
-                            'complete_percentage' => $completepercentage[$i],
+                            'ticket_number' => $ticketnumber,
+                            'prefix' => $prefix,
+                            'description' => $description,
+                            'status' => $status,
+                            'estimated_time' => $estimatedtime,
+                            'login_time' => $login_time,
+                            'logout_time' => $logout_time,
+                            'remaining_time' => $remainingtime,
+                            'complete_percentage' => $completepercentage,
                             'working_hrs'   => $working_hrs,
                             'mark' => $mark,
-                            'comments' => $comments[$i],
+                            'comments' => $comments,
                             'is_subticket' => $is_subticket,
-                            'main_ticket_no' => $main_ticket_no[$i],
+                            'main_ticket_no' => $main_ticket_no,
                             'is_testing' => $istesting,
-                            'iteration_no' => $iteration_no[$i],
+                            'iteration_no' => $iteration_no,
                             'created_date_time'=> $curent_date_time,
                             'updated_time' => $curent_date_time,
                             'date' => $date);
                 if($ManageEod->insert($form_fields))
                 {
                     $success = 1;
-                    $eod_id = $ManageEod->getEodIdByTicketnumber($ticketnumber[$i]);
+                    $eod_id = $ManageEod->getEodIdByTicketnumber($ticketnumber);
                     $form_fields_2= array('eod_id' => $eod_id,
                             'user_name' => $user_name,
-                            'status' => $status[$i],
-                            'login_time' => $login_time[$i],
-                            'logout_time' => $logout_time[$i],
-                            'remaining_time' => $remainingtime[$i],
-                            'complete_percentage' => $completepercentage[$i],
+                            'status' => $status,
+                            'login_time' => $login_time,
+                            'logout_time' => $logout_time,
+                            'remaining_time' => $remainingtime,
+                            'complete_percentage' => $completepercentage,
                             'created_at' => $date);
                             if($ManageEodLogs->insert($form_fields_2))
                             {
@@ -140,16 +137,15 @@ if ($db)
                             else
                             {
                                 echo json_encode(['code' => 404, 'message'=> 'Database Insertion failure']);  
-                                break;
+                                
                             }
                 }
                 else
                 {
                     echo json_encode(['code' => 404, 'message'=> 'Database Insertion failure']);  
-                                break;
+                                
                }
             }
-        }
     }
 
 
